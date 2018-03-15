@@ -76,7 +76,6 @@ class prsa
     public function gen_guid($ran_map='pkc00###900',$rlen=16)
     {
         $p=new prsa();
-//        $ranGuid = $p->base64url_encode($p->gen_rand($rlen));
         for($c=0;$c<strlen($ran_map);$c++){
             if($ran_map[$c]=='#'){
                 $ran_map[$c]=$p->rand(0,9);
@@ -100,7 +99,6 @@ class prsa
     {
         $p=new prsa();
         if($rpassword==null)$rpassword = $p->gen_rand($plen);
-//        echo $rpassword;
         for($c=0;$c<strlen($rpassword);$c++){
             $rpassword[$c]=$mymap[ord($rpassword[$c])&0x1f];
         }
@@ -348,7 +346,7 @@ class prsa
     function base64url_decode($data) {
       return base64_decode(str_pad(strtr($data, '&%', '+/'), strlen($data) % 4, '=', STR_PAD_RIGHT));
     }
-    //function test_hash_aes()
+//function test_hash_aes()
 //{
 //    // pass communicate with python
 //    $passkey = "diminiinnnnn";
